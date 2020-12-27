@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Vue</p>
+    <p>React</p>
+    <p>Angular</p>
+    <button id="datum">datum</button>
+    <button id="data">data</button>
+</body>
+</html>
+<script src="https://d3js.org/d3.v6.min.js"></script>
+<script>
+    const body = d3.select('body')
+    const p = d3.selectAll('p')
+    function datum() {
+        const str = 'Farmework'
+        p.datum(str)
+        p.text(function(d, i) {
+            return `${d} - ${i}`
+        })
+    } 
+    function data() {
+        const dataSet = ['Vue', 'React', 'Angular']
+        p.data(dataSet)
+         .text(function(d, i) {
+            return `${d} - ${i}`
+        })
+    }
+    document.getElementById('datum').addEventListener('click', function(e) {
+        datum()
+    })
+    document.getElementById('data').addEventListener('click', function(e) {
+        data()
+    })
+</script>
