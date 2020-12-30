@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="g6-chart"></div>
+</body>
+</html>
+<script src="https://gw.alipayobjects.com/os/lib/antv/g6/4.0.3/dist/g6.min.js"></script>
+<script>
+    const data = {
+        // 点集
+        nodes: [{
+            id: 'node1',
+            x: 100,
+            y: 200,
+            label: '起始点',
+            size: 60,
+            labelCfg: {
+                position: 'center',
+                style: {
+                    fill: '#fff',
+                    fontSize: 12
+                }
+            },
+            style: {
+                fill: '#ff0000',
+                stroke: '#888',
+                lineWidth: 1
+            }
+        },
+        {
+            id: 'node2',
+            x: 300,
+            y: 200,
+            label: '目标点1',
+            size: 80
+        },
+        {
+            id: 'node3',
+            x: 500,
+            y: 200,
+            label: '目标点2',
+            size: 100
+        },
+        {
+            id: 'node4',
+            x: 300,
+            y: 500,
+            label: '目标点4',
+            size: 100
+        }
+    ],
+    // 边集
+        edges: [{
+            source: 'node1',
+            target: 'node2',
+            label: '连接线1'
+        },
+        {
+            source: 'node2',
+            target: 'node3',
+            label: '连接线2'
+        },
+        {
+            source: 'node1',
+            target: 'node4',
+            label: '连接线3'
+        }
+    ]
+    }
+    // 完成 G6 图的初始化
+    const graph = new G6.Graph({
+        container: 'g6-chart',
+        width: 1000,
+        height: 800
+    })
+    // 绑定数据源
+    graph.data(data)
+    // 绘制矢量图
+    graph.render()
+</script>
